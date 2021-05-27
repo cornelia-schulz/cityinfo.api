@@ -49,6 +49,8 @@ namespace CityInfo.API
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseStatusCodePages();
+
             app.UseMvc();
         }
     }
