@@ -1,0 +1,41 @@
+2021-06-02 14:24:49.6756|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\cschulz1\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-02 14:24:50.0811|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:1028/  0
+2021-06-02 14:24:50.0811|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/  
+2021-06-02 14:24:50.1176|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 36.0408ms 200 
+2021-06-02 14:24:50.2620|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Route matched with {page = "/Index", action = "", controller = ""}. Executing action /Index
+2021-06-02 14:24:50.2731|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executing handler method OnGet - ModelState is Valid
+2021-06-02 14:24:50.3661|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executed action /Index in 99.3834ms
+2021-06-02 14:24:50.3661|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 296.116ms 200 text/html; charset=utf-8
+2021-06-02 14:24:55.1850|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/api/cities/10/pointsofinterest  
+2021-06-02 14:24:55.2142|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetPointsOfInterest(Int32) on controller CityInfo.API.Controllers.PointsOfInterestController (CityInfo.API).
+2021-06-02 14:24:55.2414|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API) - Validation state: Valid
+2021-06-02 14:24:55.2926|FATAL|CityInfo.API.Controllers.PointsOfInterestController|Exception while getting points of interest for city with id 10.
+2021-06-02 14:24:55.2926|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 51.1277ms.
+2021-06-02 14:24:55.3082|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2021-06-02 14:24:55.3082|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API) in 94.9864ms
+2021-06-02 14:24:55.3082|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 129.8408ms 500 text/plain; charset=utf-8
+2021-06-02 15:45:54.6696|INFO|CityInfo.API.Program|Initialising application.... 
+2021-06-02 15:45:55.5775|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\cschulz1\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-02 15:45:56.0950|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:1028/  0
+2021-06-02 15:45:56.0950|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/  
+2021-06-02 15:45:56.1296|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 35.139ms 200 
+2021-06-02 15:45:56.2778|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Route matched with {page = "/Index", action = "", controller = ""}. Executing action /Index
+2021-06-02 15:45:56.2889|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executing handler method OnGet - ModelState is Valid
+2021-06-02 15:45:56.3615|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executed action /Index in 79.7621ms
+2021-06-02 15:45:56.3615|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 274.6509ms 200 text/html; charset=utf-8
+2021-06-02 15:46:22.7334|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/api/cities/1/pointsofinterest  
+2021-06-02 15:46:22.7685|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetPointsOfInterest(Int32) on controller CityInfo.API.Controllers.PointsOfInterestController (CityInfo.API).
+2021-06-02 15:46:22.7925|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API) - Validation state: Valid
+2021-06-02 15:46:22.7995|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.913ms.
+2021-06-02 15:46:22.7995|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[CityInfo.API.Models.PointOfInterestDto, CityInfo.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-02 15:46:22.8520|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API) in 81.2262ms
+2021-06-02 15:46:22.8520|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 121.3685ms 200 application/json; charset=utf-8
+2021-06-02 15:48:02.6153|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:1028/api/cities/1/pointsofinterest  
+2021-06-02 15:48:02.6276|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12.0108ms 404 text/plain
+2021-06-02 15:48:52.7840|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:1028/api/cities/1/pointsofinterest/1  
+2021-06-02 15:48:52.7840|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "DeletePointOfInterest", controller = "PointsOfInterest", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeletePointOfInterest(Int32, Int32) on controller CityInfo.API.Controllers.PointsOfInterestController (CityInfo.API).
+2021-06-02 15:48:52.7840|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.PointsOfInterestController.DeletePointOfInterest (CityInfo.API) - Validation state: Valid
+2021-06-02 15:48:52.8009|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method CityInfo.API.Controllers.PointsOfInterestController.DeletePointOfInterest (CityInfo.API), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 3.8038ms.
+2021-06-02 15:48:52.8009|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2021-06-02 15:48:52.8009|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.PointsOfInterestController.DeletePointOfInterest (CityInfo.API) in 13.1686ms
+2021-06-02 15:48:52.8009|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 25.1897ms 204 

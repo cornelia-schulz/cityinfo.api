@@ -33,3 +33,5 @@ C:\Working\courses\CityInfo.API\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.AP
 C:\Working\courses\CityInfo.API\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.genruntimeconfig.cache
 C:\Working\courses\CityInfo.API\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.csproj.CopyComplete
 C:\Working\courses\CityInfo.API\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.csproj.AssemblyReference.cache
+C:\Working\courses\CityInfo.API\CityInfo.API\bin\Debug\netcoreapp2.1\nlog.config
+C:\Working\courses\CityInfo.API\CityInfo.API\bin\Debug\netcoreapp2.1\appsettings.Production.json
