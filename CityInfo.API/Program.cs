@@ -8,6 +8,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using NLog.Web;
+using Microsoft.Extensions.DependencyInjection;
+using CityInfo.API.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace CityInfo.API
 {
@@ -22,7 +25,26 @@ namespace CityInfo.API
             {
                 logger.Info("Initialising application.... ");
 
-                CreateWebHostBuilder(args).Build().Run();
+                var host = CreateWebHostBuilder(args).Build();
+
+                using (var scope = host.Services.CreateScope())
+                {
+                    try
+                    {
+                        var context = scope.ServiceProvider.GetService<CityInfoContext>();
+
+                        // delete db and start with clean slate
+                        context.Database.EnsureDeleted();
+                        context.Database.Migrate();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex, "An error occurred while migrating the database.");
+                    }
+                }
+
+                // run the web app
+                host.Run();
             }
             catch (Exception ex)
             {

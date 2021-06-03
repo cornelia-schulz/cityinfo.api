@@ -1,0 +1,195 @@
+2021-06-04 08:51:37.3292|INFO|CityInfo.API.Program|Initialising application.... 
+2021-06-04 08:51:48.0740|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.14-servicing-32113 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-04 08:51:49.0948|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CityInfoDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2021-06-04 08:51:49.1121|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+DROP DATABASE [CityInfoDB];
+2021-06-04 08:51:59.2823|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (126ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [CityInfoDB];
+2021-06-04 08:51:59.3323|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (48ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CityInfoDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2021-06-04 08:51:59.3882|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2021-06-04 08:51:59.3989|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-06-04 08:51:59.3989|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-06-04 08:51:59.3989|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20210603034819_CityInfoDBInitialMigration'.
+2021-06-04 08:51:59.4331|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Cities] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(50) NOT NULL,
+    [Description] nvarchar(200) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([Id])
+);
+2021-06-04 08:51:59.4331|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PointsOfInterest] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(50) NOT NULL,
+    [CityId] int NOT NULL,
+    CONSTRAINT [PK_PointsOfInterest] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_PointsOfInterest_Cities_CityId] FOREIGN KEY ([CityId]) REFERENCES [Cities] ([Id]) ON DELETE CASCADE
+);
+2021-06-04 08:51:59.4331|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PointsOfInterest_CityId] ON [PointsOfInterest] ([CityId]);
+2021-06-04 08:51:59.4446|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210603034819_CityInfoDBInitialMigration', N'2.1.14-servicing-32113');
+2021-06-04 08:51:59.4446|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20210603040211_CityInfoDBAddPointOfInterestDescription'.
+2021-06-04 08:51:59.4446|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [PointsOfInterest] ADD [Description] nvarchar(200) NULL;
+2021-06-04 08:51:59.4446|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210603040211_CityInfoDBAddPointOfInterestDescription', N'2.1.14-servicing-32113');
+2021-06-04 08:51:59.5538|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\cschulz1\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-04 08:52:00.1663|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/  
+2021-06-04 08:52:00.1663|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:1028/  0
+2021-06-04 08:52:00.2101|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 69.3955ms 200 
+2021-06-04 08:52:00.4043|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Route matched with {page = "/Index", action = "", controller = ""}. Executing action /Index
+2021-06-04 08:52:00.4195|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executing handler method OnGet - ModelState is Valid
+2021-06-04 08:52:00.5318|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executed action /Index in 120.2635ms
+2021-06-04 08:52:00.5389|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 400.0199ms 200 text/html; charset=utf-8
+2021-06-04 08:52:00.5389|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/css/site.css  
+2021-06-04 08:52:00.5389|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/lib/bootstrap/dist/css/bootstrap.css  
+2021-06-04 08:52:00.5735|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+2021-06-04 08:52:00.5735|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /css/site.css was not modified
+2021-06-04 08:52:00.5735|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/lib/jquery/dist/jquery.js  
+2021-06-04 08:52:00.5735|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /lib/jquery/dist/jquery.js was not modified
+2021-06-04 08:52:00.5877|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 35.6507ms 304 text/css
+2021-06-04 08:52:00.5877|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 35.6507ms 304 text/css
+2021-06-04 08:52:00.5877|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 13.9141ms 304 application/javascript
+2021-06-04 08:52:00.5877|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/lib/bootstrap/dist/js/bootstrap.js  
+2021-06-04 08:52:00.6009|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/js/site.js?v=dLGP40S79Xnx6GqUthRF6NWvjvhQ1nOvdVSwaNcgG18  
+2021-06-04 08:52:00.6009|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+2021-06-04 08:52:00.6009|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /js/site.js was not modified
+2021-06-04 08:52:00.6177|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/images/banner1.svg  
+2021-06-04 08:52:00.6481|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 21.944ms 304 application/javascript
+2021-06-04 08:52:00.6481|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 19.2017ms 304 application/javascript
+2021-06-04 08:52:00.6662|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /images/banner1.svg was not modified
+2021-06-04 08:52:00.6662|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/images/banner2.svg  
+2021-06-04 08:52:00.6662|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 59.4257ms 304 image/svg+xml
+2021-06-04 08:52:00.6819|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/images/banner3.svg  
+2021-06-04 08:52:00.6819|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /images/banner2.svg was not modified
+2021-06-04 08:52:00.6819|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /images/banner3.svg was not modified
+2021-06-04 08:52:00.6819|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 25.2721ms 304 image/svg+xml
+2021-06-04 08:52:00.6960|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 20.4265ms 304 image/svg+xml
+2021-06-04 08:52:00.6960|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2  
+2021-06-04 08:52:00.6960|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 was not modified
+2021-06-04 08:52:00.7147|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 4.3088ms 304 font/woff2
+2021-06-04 09:08:17.9764|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.14-servicing-32113 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-04 09:08:41.4753|INFO|CityInfo.API.Program|Initialising application.... 
+2021-06-04 09:09:43.5786|INFO|CityInfo.API.Program|Initialising application.... 
+2021-06-04 09:09:44.0265|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.14-servicing-32113 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-04 09:09:45.1599|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CityInfoDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2021-06-04 09:09:45.1786|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+DROP DATABASE [CityInfoDB];
+2021-06-04 09:09:55.3101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (108ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [CityInfoDB];
+2021-06-04 09:09:55.3450|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CityInfoDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2021-06-04 09:09:55.3818|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2021-06-04 09:09:55.3818|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-06-04 09:09:55.3818|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-06-04 09:09:55.3918|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20210603034819_CityInfoDBInitialMigration'.
+2021-06-04 09:09:55.3918|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Cities] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(50) NOT NULL,
+    [Description] nvarchar(200) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([Id])
+);
+2021-06-04 09:09:55.4034|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PointsOfInterest] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(50) NOT NULL,
+    [CityId] int NOT NULL,
+    CONSTRAINT [PK_PointsOfInterest] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_PointsOfInterest_Cities_CityId] FOREIGN KEY ([CityId]) REFERENCES [Cities] ([Id]) ON DELETE CASCADE
+);
+2021-06-04 09:09:55.4034|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PointsOfInterest_CityId] ON [PointsOfInterest] ([CityId]);
+2021-06-04 09:09:55.4034|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210603034819_CityInfoDBInitialMigration', N'2.1.14-servicing-32113');
+2021-06-04 09:09:55.4034|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20210603040211_CityInfoDBAddPointOfInterestDescription'.
+2021-06-04 09:09:55.4034|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [PointsOfInterest] ADD [Description] nvarchar(200) NULL;
+2021-06-04 09:09:55.4034|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210603040211_CityInfoDBAddPointOfInterestDescription', N'2.1.14-servicing-32113');
+2021-06-04 09:09:55.4034|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20210603210818_SampleData'.
+2021-06-04 09:09:55.4276|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[Cities]'))
+    SET IDENTITY_INSERT [Cities] ON;
+INSERT INTO [Cities] ([Id], [Description], [Name])
+VALUES (1, N'The big smoke', N'Auckland');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[Cities]'))
+    SET IDENTITY_INSERT [Cities] OFF;
+2021-06-04 09:09:55.4276|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[Cities]'))
+    SET IDENTITY_INSERT [Cities] ON;
+INSERT INTO [Cities] ([Id], [Description], [Name])
+VALUES (2, N'The one with the famous Opera House', N'Sydney');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[Cities]'))
+    SET IDENTITY_INSERT [Cities] OFF;
+2021-06-04 09:09:55.4380|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[Cities]'))
+    SET IDENTITY_INSERT [Cities] ON;
+INSERT INTO [Cities] ([Id], [Description], [Name])
+VALUES (3, N'The one with the big metal tower', N'Paris');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[Cities]'))
+    SET IDENTITY_INSERT [Cities] OFF;
+2021-06-04 09:09:55.4380|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'CityId', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[PointsOfInterest]'))
+    SET IDENTITY_INSERT [PointsOfInterest] ON;
+INSERT INTO [PointsOfInterest] ([Id], [CityId], [Description], [Name])
+VALUES (1, 1, N'Big tower in the centre of town that you can have dinner at or jump off.', N'Skytower'),
+(2, 1, N'Volcano with awesome views over the whole of Auckland.', N'Mount Eden'),
+(3, 2, N'Opera House in the shape of a sail.', N'Opera House'),
+(4, 2, N'Great area to stroll around and take in the sights.', N'Darling Harbour'),
+(5, 3, N'Big tower in the centre of the city.', N'Eiffel Tower'),
+(6, 3, N'Fantastic Museum full of art.', N'Louvre');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'CityId', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[PointsOfInterest]'))
+    SET IDENTITY_INSERT [PointsOfInterest] OFF;
+2021-06-04 09:09:55.4380|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210603210818_SampleData', N'2.1.14-servicing-32113');
+2021-06-04 09:09:55.4650|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\cschulz1\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-04 09:09:55.7657|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/  
+2021-06-04 09:09:55.8599|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Route matched with {page = "/Index", action = "", controller = ""}. Executing action /Index
+2021-06-04 09:09:55.8599|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executing handler method OnGet - ModelState is Valid
+2021-06-04 09:09:55.9257|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executed action /Index in 63.5988ms
+2021-06-04 09:09:55.9257|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 165.9117ms 200 text/html; charset=utf-8
+2021-06-04 09:19:02.0466|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:1028/  
+2021-06-04 09:19:02.0466|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Route matched with {page = "/Index", action = "", controller = ""}. Executing action /Index
+2021-06-04 09:19:02.0646|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executing handler method OnGet - ModelState is Valid
+2021-06-04 09:19:02.0853|INFO|Microsoft.AspNetCore.Mvc.RazorPages.Internal.PageActionInvoker|Executed action /Index in 20.7809ms
+2021-06-04 09:19:02.0853|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 42.543ms 200 text/html; charset=utf-8
